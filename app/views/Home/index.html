@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="homeApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title Home</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular-route.min.js"></script>
+
+    <script src="../../module/home.js"></script>
+    <script src="../../controllers/home/loginController.js"></script>
+    <script src="../../controllers/home/googleMapController.js"></script>
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="../../content/homejs/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../../content/homejs/js/jquery.js"></script>
+    <!-- Custom CSS -->
+    <link href="../../content/styles.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="../../content/bootstrap.icon-large.min.css" rel="stylesheet" />
+    <link href="../../content/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="../../content/bootstrap-responsive.min.css" rel="stylesheet" />
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../../content/homejs/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../../content/homejs/js/freelancer.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbCeGLVGQ2pvat5MMqZCy2c7lcVq9KHqA&signed_in=true&callback=initMap"
+            async defer></script>
+
+            <script src="http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID={3bea3aa6fceb3de1bcf1d36b545a4ec8}"
+            async defer></script>
+
+
+
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=758888487567403";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+</head>
+
+
+<body>
+
+<div nav id="nav"></div>
+
+<!---->
+<div ng-view="" id="ng-view">
+</div>
+
+<!--canvas-->
+
+<canvas id="myCanvas" width="200" height="200"></canvas>
+
+<script>
+    var canvas = document.getElementById('myCanvas');
+    var context = canvas.getContext('2d');
+    var imageObj = new Image();
+
+    imageObj.onload = function() {
+        context.drawImage(imageObj ,10, 50);
+    };
+    imageObj.src = "content/homejs/img/logo.png";
+</script>
+
+
+
+
+</body>
+
+
+
+</html>

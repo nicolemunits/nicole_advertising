@@ -1,0 +1,211 @@
+ <div class="container">
+        <header>
+            <h3>{{header}} Message</h3>
+        </header>
+    </div>
+   <hr>
+
+        <!--create message-->
+        <form name="create" class="form-group">
+
+            <!--input name message-->
+            <div class="row">
+                <div class="span2">
+                    <h4>Name messege:</h4>
+                </div>
+                <div class="span10">
+                    <input type="text" ng-model="message.name" required class="form-control"/>
+                    <div role="alert">
+                 <span class="error" ng-show="create.message.name.$error.required">
+                     Required!</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <br>
+            <br>
+
+
+            <!--input text message-->
+            <div class="row">
+                <div class="span2">
+                    <h4>Text messege:</h4>
+                </div>
+                <div class="span10">
+                 <span ng-repeat="text in message.text track by $index">
+                     <input type="text" ng-model="message.text[$index]" required />
+                     <button ng-click="deleteText($index)">x</button>
+
+                 </span>
+                    <button class="btn btn-success" type="button" ng-click="addText()">
+                        <span class=" glyphicon glyphicon-plus" aria-hidden="true"></span> Add Text
+                    </button><br />
+                </div>
+            </div>
+
+
+            <br>
+            <br>
+
+
+
+            <!--input image message-->
+            <div class="row">
+                <div class="span2">
+                    <h4>Image:</h4>
+                </div>
+                <div class="span10">
+            <span ng-repeat="image in message.picture track by $index">
+                 <input type="text" ng-model="message.picture[$index]" required/>
+                 <button ng-click="deleteImage($index)">x</button>
+
+             </span>
+                     <button class="btn btn-success" type="button" ng-click="addImage()">
+                    <span class=" glyphicon glyphicon-plus" aria-hidden="true"></span> Add Image
+                </button><br />
+                </div>
+            </div>
+
+
+            <br>
+            <br>
+
+
+
+
+            <!--input time message-->
+            <div class="row">
+                <div class="span2">
+                    <h4>Time:</h4>
+                </div>
+                <div class="span10">
+                </div>
+            </div>
+
+
+
+
+            <!--input start time message-->
+            <div class="row">
+                <div class="span2">
+                    <b> Start Date:</b>
+                </div>
+                <div class="span10">
+                    <input type="date" ng-model="message.time.startDate" required/>
+                </div>
+            </div>
+
+            <br>
+
+
+
+            <!--input end time message-->
+            <div class="row">
+                <div class="span2">
+                    <b> End Date:</b>
+                </div>
+                <div class="span10">
+                    <input type="date" ng-model="message.time.endDate" required/>
+                </div>
+            </div>
+
+            <br>
+
+
+            <!--ng-repeat="time in message.time.hoursByDay"-->
+            <!--input day time message-->
+            <div class="row">
+                <div class="span2">
+                    <b>Options:</b>
+                    <br>
+                </div>
+                <div class="span10">
+                    <div ng-repeat="time in message.time.hoursByDay track by $index">
+                        <b>Day:</b><input type="number" ng-model="time.day" min="1" max="7" required/>
+                        <b>Start Hour:</b><input type="number" ng-model="time.startHour" min="00" max="24" required />
+                        <b>End Hour:</b><input type="number" ng-model="time.endHour" min="00" max="24"required />
+                        <button ng-click="deleteDay($index)">x</button>
+
+                    </div>
+                    <button class="btn btn-success" type="button" ng-click="addDay()">
+                        <span class=" glyphicon glyphicon-plus" aria-hidden="true"></span> Add Day
+                    </button>
+
+                </div>
+            </div>
+
+
+            <br>
+            <br>
+
+
+            <br>
+            <!--input Duration time message-->
+            <div class="row">
+                <div class="span2">
+                    <h4>Duration:</h4><br>
+                </div>
+                <div class="span10">
+                    <input type="number" ng-model="message.duration" min="1" max="10" required /><br />
+                </div>
+            </div>
+
+
+
+            <br>
+            <br>
+
+
+            <!--input screen message-->
+            <div class="row" >
+                <div class="span2">
+                    <h4>Screen:</h4><br>
+                </div>
+                <div class="span10">
+               <span ng-repeat="screen in message.screens track by $index">
+               <select ng-model="screen.id" ng-options="screen.id as screen.name for screen in screens.availableScreens" required>
+
+                   <option value="">Select Screen</option></select>
+                                    <button ng-click="deleteScreen($index)">x</button>
+
+             </span>
+                    <button class="btn btn-success" type="button" ng-click="addScreen()">
+                        <span class=" glyphicon glyphicon-plus" aria-hidden="true"></span> Add Screen
+                    </button>
+                </div>
+            </div>
+
+
+
+            <br>
+            <br>
+
+
+
+            <!--input template message-->
+            <div class="row">
+                <div class="span2">
+                    <h4>Template:</h4><br>
+                </div>
+                <div class="span10">
+                    <select name="templateSelect" id="templateSelect" ng-model="message.link" required>
+                        <option ng-repeat="option in templates.availableTemplates" value="{{option.id}}">{{option.name}}</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <!--submit button-->
+
+            <div class="row">
+                <div class="span2">
+                </div>
+                <div class="span10">
+                    <button class="btn btn-default" type="submit" onclick="location.href='/list';">Back</button>
+                    <button class="btn btn-success"type="submit" onclick="location.href='/list';" ng-click="submit()" ng-bind="buttonText" ng-disabled="create.$invalid"></button>
+                </div>
+            </div>
+        </form>
+
+

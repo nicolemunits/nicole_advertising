@@ -1,0 +1,55 @@
+<hr>
+
+<div class="container index" id="page-top">
+        <div class="row">
+            <div class="col-lg-12">
+                <center><img class="img-responsive" src="/content/logo.png" alt="" ></center>
+            </div>
+        </div>
+    </div>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h2>Log in</h2>
+            <hr class="star-primary">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+            <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+            <form name="sentMessage" id="contactForm" novalidate>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label>Username</label>
+                        <input type="text" class="form-control" placeholder="User Name" ng-model="user.username" required>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label>Password</label>
+                        <input type="password" class="form-control" placeholder="Password" ng-model="user.pass" required>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <br>
+
+
+                <span style="float: right">
+
+
+               <button class="btn btn-default" type="submit" ng-click="signIn()">
+                   Login
+               </button>
+
+                </span>
+
+            </form>
+        </div>
+    </div>
+</div>
+
